@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Centered Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="w-100 mx-auto mt-5 border p-4 rounded shadow">
+      <h2 class="text-center mb-4">File Upload using MULTER</h2>
+
+      <form action="/submitform" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" name="user-name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="fileinput" class="form-label">Upload File:</label>
+          <!-- FOR SINGLE FILE ONLY -->
+          <input type="file" name="user-file" class="form-control mb-3" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="fileinput" class="form-label">Upload Multiple Files:</label>
+          <input type="file" multiple="multiple" name="user-multi-files" class="form-control" required>
+        </div>
+        
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary px-5">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

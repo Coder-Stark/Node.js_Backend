@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <!-- if else use -->
+    <% if(message){ %>
+        <p><%= message %></p>
+    <% } else {%>
+        <span>There is  no message</span>
+    <% } %>
+
+    <!-- loop use  -->
+    <% let items = ['Apple', 'Banana', 'Cherry'] %>
+
+    <ul>
+        <% items.forEach(item => { %>
+            <li><%= item _%></li>            <!-- (_) for removing extra space-->
+        <% })%>
+    </ul>
+    
+    <!-- another way of above  -->
+    <!-- just we dont initialize array here we initialize in main file (index.js) -->
+    <ul>
+        <% items2.forEach(item => { %>
+            <li><%= item _%></li>            <!-- (_) for removing extra space-->
+        <% })%>
+    </ul>
+    
+    <!-- rendering arrya of objects  -->
+    <table border="1" width="500px">
+        <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.name _%></td>
+            <td><%= user.age _%></td>
+            <td><%= user.city _%></td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
