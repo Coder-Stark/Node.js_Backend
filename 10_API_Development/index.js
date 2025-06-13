@@ -11,11 +11,21 @@ const connectDB = require('./config/db.js');
 connectDB();
 
 const studentRoutes = require('./routes/studentsRoute.js');
+const { MulterError } = require('multer');
 
 
 app.use(express.json());
 
 app.use('/api/students', studentRoutes);
+
+app.use((error, req, res, next)=>{
+    if(error instanceof MulterError){
+        return res.status(400).send(`Image Error : ${error.message} : ${error.code}`);
+    }else if(error){
+        return res.status(500).send(`Something went wrong : ${error.message}`);
+    }
+    next();
+})
 
 const PORT = process.env.PORT;
 app.listen(PORT, (req, res)=>{
